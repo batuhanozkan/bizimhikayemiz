@@ -23,6 +23,17 @@
     position: relative;  left: 260%;
     
 }
+
+.nbr3{
+  position: relative;  left: 200%;
+  
+}
+.nbr4{
+  position: relative;  left: 210%;
+  
+}
+
+
 .ul{
     list-style-type: none;
 }
@@ -477,6 +488,7 @@ label:hover:before {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    opacity: 0.9;
   }
   
   /* The Close Button */

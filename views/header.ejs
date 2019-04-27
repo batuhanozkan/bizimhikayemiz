@@ -2,13 +2,7 @@
 <head xmlns:style="http://www.w3.org/1999/xhtml">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <!------ Include the above in your HEAD tag ---------->
   
-  <!-- All the files that are required -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   
     <link href="https://fonts.googleapis.com/css?family=Averia+Sans+Libre|Bungee+Inline|Lobster|Press+Start+2P|Revalia" rel="stylesheet">
@@ -21,14 +15,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Courgette|Italianno|Righteous|Satisfy" rel="stylesheet"
     <link rel="shortcut icon" href="img/batuhan.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     
-    <script src="jquery-3.2.1.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Bubbler+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bubbler+One|Kaushan+Script" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bubbler+One|Kaushan+Script|Philosopher" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta charset="utf-8">
@@ -50,14 +37,26 @@
     
     <ul class="navbar-nav mr-auto ul nbr">
             <li class="nav-item">
-            <a class="bb" href="index.html"><div class="banner">yourblog</div></a>
+            <a class="bb" href="/"><div class="banner">yourblog</div></a>
             </li>
+            <%
+      if(name!=null) {
+      %> 
+      <li class="nav-item nbr3">
+          Hoşgeldin <%= name %>
+        </li>
+      <li class="nav-item nbr4">
+          <a class="nav-link" href="/logout">Çıkış</a>
+        </li>
+      <% } else { %>
+            
             <li class="nav-item nbr1">
                     <a class="nav-link" href="/login">Giriş Yap</a>
                   </li>
                   <li class="nav-item nbr2">
                     <a class="nav-link" href="/signup">Üye Ol</a>
                   </li>
+                  <% }%>
                   
         </ul>
         <div class="frm">

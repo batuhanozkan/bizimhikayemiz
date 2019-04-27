@@ -1,26 +1,25 @@
-<% include header %>
+<%- include('header',{name:user}) %>
 <div class="container-fluid">
     <div class="row orta">
+
         <div class="col-lg-7 col-sm-12 col-xs-12">
             <div class="mobil">
-               
+                <% stories.forEach(function(story) { %>  
+                    
                 <h2 class="baslik">
-                    <a class="aa" 	href="content.html"> Integer hendrerit ipsum non nunc vulputate viverra</a>
+                    <a class="aa" href="/story<%=story._id%>"> <%= story.title%></a>
                 </h2>
                 <p class="kullanici">
 					
-                  by  <a href="">inindekikral</a> 
+                  by  <a href="/id=<%=story._id%>"><%= story.author.username%></a> 
                  <p><i>23.10.2018</i></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                 Suspendisse vehicula mauris in tristique hendrerit. Vestibulum finibus augue tortor, eu rhoncus lacus accumsan ut.
-                  Ut sapien lectus, luctus et nibh vel, dignissim consectetur orci. Duis nec augue aliquet, aliquam tellus bibendum, pulvinar sem. Aenean sit amet felis ac nunc aliquam faucibus.
-                  Maecenas diam ante, rhoncus et velit a, mollis dignissim velit.
-                 Nunc ut ipsum ut lorem aliquam egestas. Sed justo ipsum, pulvinar ac lobortis id, finibus et elit. Donec lacinia justo eu nisi ultrices, vel condimentum elit pretium.
+                <p><%= story.content%>
                 
                 
                 
                 </p>
                    <i class="material-icons">search</i><a class="devam" href="content.html"><div class="devam"><p style="color:#0f0f0f;font-size:17px">Show More</p></div></a>
+                   <%});%>
                 <hr>
                 <h2 class="baslik">
                     <a class="aa" 	href="content.html"> Suspendisse nec purus vel nisi ornare tempus lacinia sit amet orci.</a>

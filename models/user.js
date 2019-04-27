@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
+var Story = require('../models/story');
+
 
 var UserSchema = new mongoose.Schema({
+  
   username: {
     type: String,
     unique: true,
@@ -14,8 +17,14 @@ var UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-  }
-});
+  },
+  
+  stories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Story'}],
+  parts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Part' }],
+  
+  
+  
+},{ usePushEach: true });
 
 //authenticate input against database
 UserSchema.statics.authenticate = function (username, password, callback) {

@@ -1,0 +1,72 @@
+<%- include('header',{name:user}) %>
+<p hidden id="usr"><%=user%></p>
+<p hidden id="strid"><%=storyId%></p>
+<p hidden id="usrd"><%=userId%></p>
+
+  
+
+<div class="container-fluid">
+    <div class="row orta">
+            <div class="col-lg-7 col-sm-7 col-xs-7">
+                    <h2 class="baslik">
+                            <a class="aa" href="/<%=story.title%>"> <%= story.title%></a>
+                        </h2>
+                        <div id="chatroom1">
+                        <p class="kullanici">
+                            
+                          by  <a href="/story=<%=story._id%>"><%= story.author.username%></a> 
+                        </p>
+                         <p><i>23.10.2018</i></p>
+                        <p><%= story.content%></p>
+                         </div>
+                        <div id="chatroom">
+                        <% parts.forEach(function(part) { %>  
+                        <p>
+                        
+                        <%= part.author.username %>: <%= part.content%>
+                        </p>
+                
+                        <%});%>
+                </div>
+                        <hr>
+                       <div>
+                        <textarea placeholder="Hikayeyi devam ettirmek istediğiniz şekilde bölüm yazınız" id="message" name="content" cols="100" rows="10" ></textarea>
+                        <button id="send_message" class="btn">Gönder</button>     
+                </div>
+                               
+                              
+                                
+                              
+                          
+            </div>
+
+            
+            
+            <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script src="/socket.io/socket.io.js"></script>
+            <script>
+            $(document).ready(function(){
+                var socket = io.connect('http://localhost:3000')
+ 
+ //buttons and inputs
+ var message = $("#message")
+ var send_message = $("#send_message")
+ var chatroom = $("#chatroom")
+ var usr = $('#usr')
+ var strid = $('#strid')
+ var usrd = $('#usrd')
+ //Emit message
+ send_message.click(function(){
+     socket.emit('new_message', {message : message.val(),userId:usrd.text(),storyId:strid.text()})
+ })
+
+ //Listen on new_message
+ socket.on("new_message", (data) => {
+     message.val('');
+     chatroom.append("<p class='message'>" + usr.text() + ": " + data.message + "</p>")
+ })
+
+
+            });
+            </script>
+<% include footer %>
